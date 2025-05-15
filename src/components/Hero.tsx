@@ -175,7 +175,7 @@ const Hero = () => {
               className="relative w-64 h-64 md:w-80 md:h-80 rounded-full overflow-hidden border-4 border-primary/30 shadow-xl"
             >
               <img 
-                src="/images/me.png" 
+                src="${process.env.PUBLIC_URL}/images/me.png" 
                 alt="Ahmed Ramadan Ahmed" 
                 className="w-full h-full object-cover"
               />
