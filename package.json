@@ -11,6 +11,11 @@
     "lint": "eslint .",
     "preview": "vite preview"
   },
+  "scripts": {
+  "build": "react-scripts build && cp -r public/images build/",
+  "predeploy": "npm run build",
+  "deploy": "gh-pages -d build"
+},
   "dependencies": {
     "@hookform/resolvers": "^3.10.0",
     "@radix-ui/react-accordion": "^1.2.0",
