@@ -168,7 +168,7 @@ const Feedback = () => {
           
           // Fetch user auth data for email addresses
           const { data: authUsersData, error: authUsersError } = await supabase
-            .from('auth')
+            .from('auth.users')
             .select('id, email')
             .in('id', userIds);
 
