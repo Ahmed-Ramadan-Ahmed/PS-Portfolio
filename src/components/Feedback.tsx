@@ -21,6 +21,7 @@ import * as z from "zod";
 import { useAuth } from "@/contexts/AuthContext";
 import { Link } from "react-router-dom";
 import { supabase } from "@/integrations/supabase/client";
+import Auth from "@/pages/Auth";
 
 type UserProfile = {
   id: string;
@@ -114,7 +115,7 @@ const Feedback = () => {
           .eq('user_id', user.id);
         
         if (reviewError) throw reviewError;
-        
+
         setHasSubmittedReview(userReviews && userReviews.length > 0);
         
         // Get user profile data
@@ -187,7 +188,7 @@ const Feedback = () => {
               date: new Date(comment.created_at || "").toISOString().split('T')[0],
               user: {
                 id: comment.user_id,
-                username: userProfile?.username || 'Anonymous',
+                username: userProfile?.username || authUser?.email,
                 first_name: userProfile?.first_name,
                 last_name: userProfile?.last_name,
                 email: authUser?.email || userProfile?.username,
@@ -392,7 +393,7 @@ const Feedback = () => {
               <Form {...reviewForm}>
                 <form onSubmit={reviewForm.handleSubmit(onReviewSubmit)} className="space-y-6">
                   <div className="p-4 bg-gray-50 dark:bg-gray-800 rounded-md mb-4">
-                    <p className="font-medium">Posting as: {userProfile?.first_name} {userProfile?.last_name || ''}</p>
+                    <p className="font-medium">Posting as: {userProfile?.email || user?.email}</p>
                     <p className="text-sm text-gray-500">All fields marked with * are required</p>
                   </div>
                   
