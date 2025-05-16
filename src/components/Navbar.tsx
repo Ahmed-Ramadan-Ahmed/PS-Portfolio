@@ -1,4 +1,3 @@
-
 import { useState, useEffect } from "react";
 import { Menu, X, LogIn, LogOut } from "lucide-react";
 import { Button } from "@/components/ui/button";
@@ -40,6 +39,15 @@ const Navbar = () => {
     navigate("/");
   };
 
+  const handleNavigation = (e: React.MouseEvent<HTMLAnchorElement>, href: string) => {
+    e.preventDefault();
+    const element = document.querySelector(href);
+    if (element) {
+      element.scrollIntoView({ behavior: "smooth" });
+      setIsOpen(false);
+    }
+  };
+
   return (
     <nav 
       className={`fixed w-full z-50 transition-all duration-300 ${
@@ -62,6 +70,7 @@ const Navbar = () => {
                 <a
                   key={item.name}
                   href={item.href}
+                  onClick={(e) => handleNavigation(e, item.href)}
                   className="font-medium hover:text-primary px-3 py-2 rounded-md text-sm"
                 >
                   {item.name}
@@ -84,7 +93,7 @@ const Navbar = () => {
               )}
               
               <Button variant="default" size="sm">
-                <a href="#contact">Book Meeting</a>
+                <a href="#contact" onClick={(e) => handleNavigation(e, "#contact")}>Book Meeting</a>
               </Button>
             </div>
           </div>
@@ -111,8 +120,8 @@ const Navbar = () => {
               <a
                 key={item.name}
                 href={item.href}
+                onClick={(e) => handleNavigation(e, item.href)}
                 className="block px-3 py-2 rounded-md text-base font-medium hover:text-primary hover:bg-gray-50 dark:hover:bg-gray-800"
-                onClick={() => setIsOpen(false)}
               >
                 {item.name}
               </a>
@@ -142,8 +151,8 @@ const Navbar = () => {
             )}
             
             <div className="pt-2">
-              <Button className="w-full" onClick={() => setIsOpen(false)}>
-                <a href="#contact">Book Meeting</a>
+              <Button className="w-full">
+                <a href="#contact" onClick={(e) => handleNavigation(e, "#contact")}>Book Meeting</a>
               </Button>
             </div>
           </div>
