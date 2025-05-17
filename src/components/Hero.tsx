@@ -23,6 +23,14 @@ const Hero = () => {
     return () => clearInterval(interval);
   }, []);
 
+  const handleNavigation = (e: React.MouseEvent<HTMLAnchorElement>, href: string) => {
+    e.preventDefault();
+    const element = document.querySelector(href);
+    if (element) {
+      element.scrollIntoView({ behavior: "smooth" });
+    }
+  };
+
   return (
     <section 
       id="home" 
@@ -127,12 +135,12 @@ const Hero = () => {
             >
               <motion.div whileHover={{ scale: 1.05 }} whileTap={{ scale: 0.95 }}>
                 <Button size="lg" asChild>
-                  <a href="#contact">Book a Meeting</a>
+                  <a href="#contact" onClick={(e) => handleNavigation(e, "#contact")}>Book a Meeting</a>
                 </Button>
               </motion.div>
               <motion.div whileHover={{ scale: 1.05 }} whileTap={{ scale: 0.95 }}>
                 <Button size="lg" variant="outline" asChild>
-                  <a href="#help">See How I Can Help</a>
+                  <a href="#help" onClick={(e) => handleNavigation(e, "#help")}>See How I Can Help</a>
                 </Button>
               </motion.div>
             </motion.div>
