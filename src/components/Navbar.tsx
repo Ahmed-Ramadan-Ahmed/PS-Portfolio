@@ -93,7 +93,7 @@ const Navbar = () => {
               )}
               
               <Button variant="default" size="sm">
-                <a href="#contact" onClick={(e) => handleNavigation(e, "#contact")}>Book Meeting</a>
+                <a href="#contact" onClick={(e) => handleNavigation(e, "#contact")}>Book an appointment</a>
               </Button>
             </div>
           </div>
@@ -152,7 +152,7 @@ const Navbar = () => {
             
             <div className="pt-2">
               <Button className="w-full">
-                <a href="#contact" onClick={(e) => handleNavigation(e, "#contact")}>Book Meeting</a>
+                <a href="#contact" onClick={(e) => handleNavigation(e, "#contact")}>Book an appointment</a>
               </Button>
             </div>
           </div>

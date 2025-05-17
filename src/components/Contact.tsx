@@ -66,7 +66,7 @@ const Contact = () => {
     if (!user) {
       toast({
         title: "Authentication Required",
-        description: "Please sign in to book a meeting",
+        description: "Please sign in to book an appointment",
         variant: "destructive"
       });
       return;
@@ -128,7 +128,7 @@ const Contact = () => {
                 <LogIn className="h-12 w-12 text-primary mb-4" />
                 <h3 className="text-xl font-semibold mb-2">Authentication Required</h3>
                 <p className="mb-4 text-gray-600 dark:text-gray-400">
-                  Please sign in to book a meeting
+                  Please sign in to book an appointment
                 </p>
                 <Button asChild>
                   <Link to="/auth">Sign In / Sign Up</Link>
@@ -253,7 +253,7 @@ const Contact = () => {
                       className="w-full transition-all duration-300 transform hover:scale-[1.02]" 
                       disabled={isSubmitting}
                     >
-                      {isSubmitting ? "Sending..." : "Book Meeting"}
+                      {isSubmitting ? "Sending..." : "Book an appointment"}
                     </Button>
                   </form>
                 </CardContent>
